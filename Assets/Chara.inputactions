@@ -1,0 +1,56 @@
+{
+    "name": "Chara",
+    "maps": [
+        {
+            "name": "ui",
+            "id": "f04e5b08-aa65-424e-aacc-67fa4e108db4",
+            "actions": [
+                {
+                    "name": "nihongo",
+                    "type": "Button",
+                    "id": "105b676d-ccdc-430e-a8b9-c933e2b28bf2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "60273581-4a74-4284-9a18-277d644c486e",
+                    "path": "o",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "chara",
+                    "action": "nihongo",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "48b9b025-bef4-4297-83b8-e5d3c96d1a6c",
+                    "path": "p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "chara",
+                    "action": "nihongo",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "chara",
+            "bindingGroup": "chara",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
