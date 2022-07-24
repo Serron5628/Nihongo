@@ -32,8 +32,11 @@ public class ButtonPush : MonoBehaviour
         var oKey = current.oKey;
         var pKey = current.pKey;
 
+        Text chara_text = chara_object.GetComponent<Text>();
+
         if (oKey.wasPressedThisFrame)
         {
+            //母音選択から子音選択に戻った際に文字の入力を確定する
             if (charaInputFlag)
             {
                 all += chara[Mathf.Max(a, 0), Mathf.Max(b, 0)];
@@ -41,19 +44,39 @@ public class ButtonPush : MonoBehaviour
                 b = -1;
                 Debug.Log(all);
                 charaInputFlag = false;
-
-                Text chara_text = chara_object.GetComponent<Text>();
-                chara_text.text = all;
             }
+
+            //「あかさたな」の順番で子音を選択する
             a++;
-            Debug.Log(chara[Mathf.Max(a, 0), Mathf.Max(b, 0)]);
+
+            //「わ」の時に「あ」に戻す
+            if(chara[Mathf.Max(a, 0), Mathf.Max(b, 0)] == null)
+            {
+                a = 0;
+            }
+
+            //文字入力の結果を表示
+            Debug.Log(all + chara[Mathf.Max(a, 0), Mathf.Max(b, 0)]);
+            chara_text.text = all + chara[Mathf.Max(a, 0), Mathf.Max(b, 0)];
         }
 
         if (pKey.wasPressedThisFrame)
         {
+            //母音選択を始めたフラグ
             charaInputFlag = true;
+
+            //「あいうえお」の順番で母音を選択
             b++;
-            Debug.Log(chara[Mathf.Max(a, 0), Mathf.Max(b, 0)]);
+
+            //「お」の次とか行って文字がなくなったときに先頭の「あ」に戻ってくる
+            if(chara[Mathf.Max(a, 0), Mathf.Max(b, 0)] == null)
+            {
+                b = 0;
+            }
+
+            //文字を表示
+            Debug.Log(all + chara[Mathf.Max(a, 0), Mathf.Max(b, 0)]);
+            chara_text.text = all + chara[Mathf.Max(a, 0), Mathf.Max(b, 0)];
         }
 
 
